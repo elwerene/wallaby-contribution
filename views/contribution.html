@@ -1,0 +1,47 @@
+<div id="navbar" class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        {{#config}}{{#title}}
+        <a class="brand" href="/">{{title}}</a>
+        {{/title}}{{/config}}
+        <ul class="nav">
+            {{#site}}{{#segments}}
+                {{#scroll-point}}<li><a href="#{{name}}">{{name}}</a></li>{{/scroll-point}}
+            {{/segments}}{{/site}}
+        </ul>
+        {{#links}}{{#site}}
+            <a class="brand" href="{{site}}" style="float:right">{{_id}}</a>
+        {{/site}}{{/links}}
+    </div>
+</div>
+
+<div data-spy="scroll" data-target=".navbar" class="container" style="padding-top:50px;">
+{{#site}}{{#segments}}
+    <div class="row" {{#scroll-point}}id="{{name}}"{{/scroll-point}}>
+
+    {{#markdown}}{{{html}}}{{/markdown}}
+
+    {{#image}}
+        {{#caption}}<div class="thumbnail">{{/caption}}
+            <img class="normalImage" src="/images/{{_id}}/{{image}}" alt=""/>
+        {{#caption}}<p>{{{caption}}}</p></div>{{/caption}}
+    {{/image}}
+
+    {{#html}}{{{html}}}{{/html}}
+
+    {{#thumbnails}}
+        <ul class="thumbnails">
+            {{#thumbnails}}
+                <li class="span4">
+                    {{#caption}}<div class="thumbnail">{{/caption}}
+                    <img class="normalImage" src="/images/{{_id}}/{{image}}" alt=""/>
+                    {{#caption}}<p>{{{caption}}}</p></div>{{/caption}}
+                </li>
+            {{/thumbnails}}
+        </ul>
+    {{/thumbnails}}
+
+    </div>
+{{/segments}}{{/site}}
+</div>
+
+<script>$('#navbar').scrollspy()</script>

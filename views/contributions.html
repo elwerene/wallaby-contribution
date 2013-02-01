@@ -1,0 +1,20 @@
+<div id="navbar" class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        {{#config}}{{#title}}
+        <a class="brand" href="/">{{title}}</a>
+        {{/title}}{{/config}}
+    </div>
+</div>
+
+<ul class="thumbnails" style="padding-top:50px;">
+    {{#contributions}}
+        <li class="span4">
+            <a href="/{{_id}}">
+                <div class="thumbnail">
+                    <h3>{{_id}}</h3>
+                    <p>{{#description}}{{{html}}}{{/description}}</p>
+                </div>
+            </a>
+        </li>
+    {{/contributions}}
+</ul>

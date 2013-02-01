@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{#config}}{{title}}{{/config}}</title>
+
+    <link href="/images/config/favicon.ico" rel="shortcut icon">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    {{#config}}
+        <style>
+            {{{css}}}
+        </style>
+    {{/config}}
+
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    {{^error}}
+        <div class="container">
+            <div class="row">
+                <div class="span12 contentbox">
+                    {{{body}}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="span12 contentbox footer" style="text-align:center">
+                    Made with <a href="https://github.com/elwerene/wallaby-contribution">Wallaby-Contribution</a>.
+                </div>
+            </div>
+        </div>
+    {{/error}}
+
+    {{#error}}
+    <div class="container">
+        <div class="row" style="height:10px">
+        </div>
+        <div class="row">
+            <div class="span10 offset1 contentbox" style="text-align:center;">
+              <h1>{{message}}</h1>
+              {{#solutionText}}
+              <p style="margin-top:2em;">
+                <a class="btn btn-primary btn-large" href="{{{solutionURL}}}">
+                  {{solutionText}}
+                </a>
+              </p>
+              {{/solutionText}}
+            </div>
+        </div>
+    </div>
+    {{/error}}
+  </body>
+</html>
